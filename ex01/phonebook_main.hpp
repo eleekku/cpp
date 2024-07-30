@@ -2,9 +2,11 @@
 #define PHONEBOOK_MAIN_HPP
 
 # include <iostream>
+# include <string>
 //# include <iomanip>
+# include "PhoneBook.hpp"
 # include "Contact.hpp"
-# include "Phonebook.hpp"
+//# include "PhoneBook.hpp"
 
 #endif
 

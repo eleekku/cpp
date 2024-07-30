@@ -1,5 +1,5 @@
-#ifndef CONTACT_CPP
-#define CONTACT_CPP
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 
 class Contact{
 
