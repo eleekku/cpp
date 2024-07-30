@@ -1,6 +1,8 @@
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
+# include "phonebook_main.hpp"
+
 class Contact{
 
 private: 
