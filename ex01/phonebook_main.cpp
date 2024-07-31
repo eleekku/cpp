@@ -36,7 +36,7 @@ int addContact(PhoneBook &phonebook, int index)
 void    searchContact(PhoneBook &phonebook, int count) //, int index)
 {
     std::string first_name, last_name, nickname;
-    std::string user_index;
+    std::string user_input;
     int         index;
 
     std::cout << std::endl;
@@ -65,10 +65,12 @@ void    searchContact(PhoneBook &phonebook, int count) //, int index)
     
         std::cout << std::endl;
         std::cout << "Please enter the contact's index to see more details:\n> ";
-        std::getline(std::cin, user_index);
+        std::getline(std::cin, user_input);
         if (std::cin.eof())
             return;
-        index = std::stoi(user_index);
+        if (!std::isdigit(user_input[0]) || (user_input.size() > 1))
+            return;
+        index = std::stoi(user_input);
         if (index >= 1 && index <= count)
         phonebook.get_contact(index - 1).ft_print();
         else
@@ -100,8 +102,10 @@ int main(void)
                 }
                 continue;
             }
-            if (user_input == "SEARCH")
+            if (user_input == "SEARCH"){
                 searchContact(phonebook, contact_count);
+                continue;
+            }
             if (user_input == "EXIT")
                 break;
             else
