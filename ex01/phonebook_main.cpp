@@ -33,7 +33,7 @@ int addContact(PhoneBook &phonebook, int index)
     return (1);
 }
 
-void    searchContact(PhoneBook &phonebook, int count) //, int index)
+void    searchContact(PhoneBook &phonebook, int count)
 {
     std::string first_name, last_name, nickname;
     std::string user_input;
@@ -94,7 +94,7 @@ int main(void)
             if (user_input == "ADD")
             {
                 if (contact_count >= 8)
-                    std::cout << "Cannot add more than 8 contacts\n";
+                    contact_count = 0;
                 else
                 {
                     if (addContact(phonebook, contact_count))
