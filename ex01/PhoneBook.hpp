@@ -18,7 +18,7 @@ class PhoneBook{
 		std::string get_last_name(int i);
 		std::string get_nickname(int i);
 		std::string get_phone_number(int i);
-		//std::string get_darkest_secret(int i);
+		std::string get_darkest_secret(int i);
 		
 	private:
 		Contact phonebook[8];
