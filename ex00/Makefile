@@ -8,9 +8,9 @@ COMPILE		=	clang++
 
 FLAGS		=	-Wall -Wextra -Werror 
 
-EXE_NAME	=	-o phonebook
+EXE_NAME	=	-o megaphone
 
-EXEC		=	phonebook
+EXEC		=	megaphone
 
 # ------------------------------------- RULES ---------------------------------
 all: $(NAME)

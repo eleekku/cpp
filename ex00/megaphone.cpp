@@ -13,10 +13,6 @@ int main(int argc, char* argv[]) {
                 // Convert each character to uppercase and print it
                 std::cout << (char)std::toupper(argv[i][j]);
             }
-            if (i < argc - 1) {
-                // Print a space between arguments
-                std::cout << " ";
-            }
         }
         std::cout << std::endl; // Add a newline after all arguments are printed
     }

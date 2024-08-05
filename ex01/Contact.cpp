@@ -21,7 +21,7 @@ void	Contact::ft_print(void) const{
 		std::cout << "Last name: " << this->last_name << std::endl;
 		std::cout << "Nickname: " << this->nickname << std::endl;
 		std::cout << "Phone number: " << this->phone_number << std::endl;
-		std::cout << "Darkest secret: " << this->darkest_secret;
+		std::cout << "Darkest secret: " << this->darkest_secret << std::endl;
 }
 
 std::string	Contact::get_first_name() const{

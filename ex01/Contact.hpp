@@ -17,6 +17,7 @@ public:
 
 	~Contact();	
 	
+	int		contact;
 	void	set_value(std::string f, std::string l, std::string n, std::string p, std::string d);
 	void	ft_print(void)const;
 		

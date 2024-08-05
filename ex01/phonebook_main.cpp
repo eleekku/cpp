@@ -6,28 +6,38 @@ int addContact(PhoneBook &phonebook, int index)
 
     std::cout << "Please enter contact's first name\n ";
     std::getline(std::cin, first_name);
-    if (std::cin.eof())
+    if (std::cin.eof() || first_name.length() < 1){
+        std::cerr << "invalid input\n";
         return (0);
+    }
 
     std::cout << "Please enter contact's last name\n ";
     std::getline(std::cin, last_name);
-    if (std::cin.eof())
+    if (std::cin.eof() || last_name.length() < 1){
+        std::cerr << "invalid input\n";
         return (0);
+    }
 
     std::cout << "Please enter contact's nickname\n ";
     std::getline(std::cin, nickname);
-    if (std::cin.eof())
+    if (std::cin.eof() || nickname.length() < 1){
+        std::cerr << "invalid input\n";
         return (0);
+    }
    
     std::cout << "Please enter contact's phone_number\n ";
     std::getline(std::cin, phone_number);
-    if (std::cin.eof())
+    if (std::cin.eof() || phone_number.length() < 1){
+        std::cerr << "invalid input\n";
         return (0);
+    }
 
     std::cout << "Please enter contact's darkest_secret\n ";
     std::getline(std::cin, darkest_secret);
-    if (std::cin.eof())
+    if (std::cin.eof() || darkest_secret.length() < 1){
+        std::cerr << "invalid input\n";
         return (0);
+    }
 
     phonebook.create_new_contact(index, first_name, last_name, nickname, phone_number, darkest_secret);
     return (1);
@@ -45,7 +55,7 @@ void    searchContact(PhoneBook &phonebook, int count)
     << std::setw(10) << "Last Name" << "|" 
     << std::setw(10) << "Nickname" << "|" << std::endl;
 
-    for (int i = 0; i < count; ++i){
+    for (int i = 0; i < 8; ++i){
         first_name = phonebook.get_first_name(i);
         last_name = phonebook.get_last_name(i);
         nickname = phonebook.get_nickname(i);
@@ -68,13 +78,15 @@ void    searchContact(PhoneBook &phonebook, int count)
         std::getline(std::cin, user_input);
         if (std::cin.eof())
             return;
-        if (!std::isdigit(user_input[0]) || (user_input.size() > 1))
+        if (!std::isdigit(user_input[0]) || (user_input.size() > 1)){
+            std::cout << "Wrong index\n";
             return;
+        }
         index = std::stoi(user_input);
         if (index >= 1 && index <= count)
-        phonebook.get_contact(index - 1).ft_print();
+            phonebook.get_contact(index - 1).ft_print();
         else
-            std::cout << "Wrong index\n> ";
+            std::cout << "Wrong index\n";
 }
 
 int main(void)
@@ -91,22 +103,21 @@ int main(void)
             std::getline(std::cin, user_input);
             if (std::cin.eof())
                 break;
-            if (user_input == "ADD")
+            else if (user_input == "ADD")
             {
                 if (contact_count >= 8)
                     contact_count = 0;
-                else
-                {
+                else{
                     if (addContact(phonebook, contact_count))
                     contact_count++;
                 }
                 continue;
             }
-            if (user_input == "SEARCH"){
+            else if (user_input == "SEARCH"){
                 searchContact(phonebook, contact_count);
                 continue;
             }
-            if (user_input == "EXIT")
+            else if (user_input == "EXIT")
                 break;
             else
                 std::cout << "Invalid command. Please enter ADD, SEARCH, or EXIT." << std::endl;
