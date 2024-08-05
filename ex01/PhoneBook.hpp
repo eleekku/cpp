@@ -12,6 +12,7 @@ class PhoneBook{
 
 		~PhoneBook();
 
+		int		contact;
 		void	create_new_contact(int i, std::string f, std::string l, std::string n, std::string p, std::string d);
 		Contact	get_contact(int i);
 		std::string get_first_name(int i);

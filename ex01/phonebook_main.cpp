@@ -40,10 +40,12 @@ int addContact(PhoneBook &phonebook, int index)
     }
 
     phonebook.create_new_contact(index, first_name, last_name, nickname, phone_number, darkest_secret);
+    if (phonebook.contact < 8)
+        phonebook.contact++;
     return (1);
 }
 
-void    searchContact(PhoneBook &phonebook, int count)
+void    searchContact(PhoneBook &phonebook)
 {
     std::string first_name, last_name, nickname;
     std::string user_input;
@@ -55,7 +57,7 @@ void    searchContact(PhoneBook &phonebook, int count)
     << std::setw(10) << "Last Name" << "|" 
     << std::setw(10) << "Nickname" << "|" << std::endl;
 
-    for (int i = 0; i < 8; ++i){
+    for (int i = 0; i < phonebook.contact; ++i){
         first_name = phonebook.get_first_name(i);
         last_name = phonebook.get_last_name(i);
         nickname = phonebook.get_nickname(i);
@@ -83,7 +85,7 @@ void    searchContact(PhoneBook &phonebook, int count)
             return;
         }
         index = std::stoi(user_input);
-        if (index >= 1 && index <= count)
+        if (index >= 1 && index <= phonebook.contact)
             phonebook.get_contact(index - 1).ft_print();
         else
             std::cout << "Wrong index\n";
@@ -97,6 +99,7 @@ int main(void)
         int         contact_count;
  
         contact_count = 0;
+        phonebook.contact = 0;
         while (1)
         {
             std::cout << "Please enter a command (SEARCH / ADD / EXIT)\n";
@@ -114,7 +117,7 @@ int main(void)
                 continue;
             }
             else if (user_input == "SEARCH"){
-                searchContact(phonebook, contact_count);
+                searchContact(phonebook);
                 continue;
             }
             else if (user_input == "EXIT")
